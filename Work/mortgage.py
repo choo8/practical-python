@@ -23,4 +23,4 @@ while principal > 0:
     cur_month += 1
 
 print(f'Total paid {total_paid:.2f}')
-print('Months', cur_month - 1)
+print(f'Months {cur_month - 1}')
