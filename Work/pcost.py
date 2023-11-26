@@ -7,8 +7,11 @@ def portfolio_cost(filename):
     with open(filename, "rt") as f:
         lines = f.readlines()
         for line in lines[1:]:
-            _, num_shares, price = line.strip().split(",")
-            total_cost += int(num_shares) * float(price)
+            try:
+                _, num_shares, price = line.strip().split(",")
+                total_cost += int(num_shares) * float(price)
+            except ValueError as e:
+                print(e)
 
     return total_cost
 
