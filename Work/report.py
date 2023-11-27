@@ -29,6 +29,14 @@ def read_prices(filename):
 
     return prices
 
+def make_report(portfolio, prices):
+    report = []
+
+    for share in portfolio:
+        report.append((share["name"], int(share["shares"]), float(prices[share["name"]]), float(prices[share["name"]]) - float(share["price"])))
+
+    return report
+
 if len(sys.argv) == 3:
     portfolio_filename, prices_filename = sys.argv[1], sys.argv[2]
 else:
