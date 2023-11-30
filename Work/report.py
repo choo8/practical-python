@@ -12,7 +12,7 @@ def read_portfolio(filename):
         headers = next(rows)
 
         for row in rows:
-            holding = {"name": row[0], "shares": int(row[1]), "price": float(row[2])}
+            holding = dict(zip(headers, row))
             portfolio.append(holding)
 
     return portfolio
@@ -49,8 +49,8 @@ cost = 0
 market_value = 0
 
 for share in portfolio:
-    cost += share["shares"] * share["price"]
-    market_value += share["shares"] * prices[share["name"]]
+    cost += int(share["shares"]) * float(share["price"])
+    market_value += int(share["shares"]) * float(prices[share["name"]])
 
 print(f"Current value {market_value:.2f}")
 print(f"Gain {market_value - cost:.2f}")
