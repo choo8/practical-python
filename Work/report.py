@@ -61,4 +61,4 @@ print("      Name     Shares      Price      Change")
 print("---------- ---------- ---------- -----------")
 
 for name, shares, price, change in report:
-    print(f"{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}")
+    print(f'{name:>10s} {shares:>10d} {f"${price:.2f}":>10} {change:>10.2f}')
